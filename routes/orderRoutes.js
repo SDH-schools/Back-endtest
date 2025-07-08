@@ -8,6 +8,12 @@ router.get('/', async (req, res) => {
   res.json(orders);
 });
 
+// Voir commande by id
+router.get('/:id', async (req, res) => {
+  const orders = await Order.findById(req.params.id)
+  res.json(orders);
+});
+
 // Créer une commande
 router.post('/', async (req, res) => {
   const newOrder = new Order(req.body);
